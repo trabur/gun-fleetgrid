@@ -2,6 +2,7 @@ import {Flint, KeyValAdapter} from 'gun-flint'
 
 const myGunAdapter = new KeyValAdapter({
   opt: function(context, options) {
+    console.log('gun-fleetgrid')
     let {fleetgrid} = options
     if (fleetgrid) {
       this.initialized = true

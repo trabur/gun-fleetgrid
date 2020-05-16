@@ -7,10 +7,11 @@ make sure to have included GUN and METAHEAP before instantiating
 - https://github.com/trabur/head-team/
 
 ```js
+let ht = require('metaheap')
 const Gun = require('gun')
 
 // Must be added after Gun but before instantiating Gun
-let ht = require('metaheap')
+require('gun-fleetgrid')
 
 // Instantiate Gun
 let gun = new Gun({

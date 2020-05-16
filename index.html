@@ -36,6 +36,19 @@
         token: '...' // use ht.checkpoint() to get this
       }
     })
+
+    function testPut() {
+      gun.get('test').put({
+        hello: "world",
+        welcome: "earth"
+      })
+    }
+
+    function testGet() {
+      gun.get('test').once((value) => {
+        console.log('get', value)
+      })
+    }
   </script>
   </body>
 </html>

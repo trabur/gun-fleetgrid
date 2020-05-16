@@ -14,11 +14,12 @@ const fgGunAdapter = new KeyValAdapter({
   },
   get: function(key, field, done) {
     console.log('get:key', key)
-    console.log('get:field', field)
+    // get:key test
     // handle read
   },
   put: function(node, done) {
     console.log('put:node', node)
+    // put:node [{state: 1589606526747, field: "hello", key: "test", val: "world"}]
     // handle write
   }
 });

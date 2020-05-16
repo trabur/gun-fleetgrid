@@ -14,8 +14,16 @@ let ht = require('metaheap')
 
 // Instantiate Gun
 let gun = new Gun({
+  // public
   fleetgrid: {
-    library: ht, // pass in headteam for gun to use
+    library: ht,
+  }
+})
+/* -- or -- */
+let gun = new Gun({
+  // private
+  fleetgrid: {
+    library: ht,
     token: '...' // use ht.checkpoint() to get this
   }
 })

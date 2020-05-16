@@ -7217,9 +7217,12 @@
 	      this.initialized = false;
 	    }
 	  },
-	  get: function get(key, field, done) {// handle read
+	  get: function get(key, field, done) {
+	    console.log('get:key', key);
+	    console.log('get:field', field); // handle read
 	  },
-	  put: function put(node, done) {// handle write
+	  put: function put(node, done) {
+	    console.log('put:node', node); // handle write
 	  }
 	});
 	Flint.register(fgGunAdapter);

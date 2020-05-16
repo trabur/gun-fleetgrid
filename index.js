@@ -1,6 +1,6 @@
-import {Flint, KeyValAdapter} from 'gun-flint'
+const {Flint, KeyValAdapter} = require('gun-flint')
 
-const myGunAdapter = new KeyValAdapter({
+const fgGunAdapter = new KeyValAdapter({
   opt: function(context, options) {
     console.log('gun-fleetgrid')
     let {fleetgrid} = options
@@ -13,11 +13,14 @@ const myGunAdapter = new KeyValAdapter({
     }
   },
   get: function(key, field, done) {
-      // handle read
+    console.log('get:key', key)
+    console.log('get:field', field)
+    // handle read
   },
   put: function(node, done) {
-      // handle write
+    console.log('put:node', node)
+    // handle write
   }
 });
 
-Flint.register(myGunAdapter);
+Flint.register(fgGunAdapter);

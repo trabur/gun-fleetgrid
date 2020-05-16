@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>gun-fleetgrid</title>
+    <!-- GUN -->
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/lib/radix.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/lib/radisk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/lib/store.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/lib/rindexed.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/lib/webrtc.js"></script>
+    <!-- adapter -->
+    <script src="node_modules/metaheap/bundle.js"></script>
+    <script src="bundle.js"></script>
+  </head>
+  <body style="margin: 0; color: #333; font-family: sans-serif; overflow: hidden;">
+    <div style="max-width: 800px; margin: 0 auto; background: #eee; height: 100%; padding: 0 1em; position: relative; overflow: auto;">
+      <br />
+      <br />
+      <br />
+      <div style="border-bottom: 5px dashed;">
+        <h2 style="text-align: center;">gun-fleetgrid</h2>
+      </div>
+      <h1 style="text-align: center;">test</h1>
+      <div style="border-top: 5px dashed;">
+        <h2 style="text-align: center;">gun-fleetgrid</h2>
+      </div>
+      <br />
+      <br />
+      <br />
+    </div>
+  <script>
+    let gun = new Gun({
+      fleetgrid: {
+        library: ht, // pass in headteam for gun to use
+        token: '...' // use ht.checkpoint() to get this
+      }
+    })
+  </script>
+  </body>
+</html>

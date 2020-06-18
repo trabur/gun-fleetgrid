@@ -18,6 +18,8 @@ let gun = new Gun({
   // public
   fleetgrid: {
     library: ht,
+    plate: 'ABC',
+    highway: '1234567890'
   }
 })
 /* -- or -- */

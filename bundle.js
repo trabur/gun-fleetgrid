@@ -7206,23 +7206,37 @@
 	    KeyValAdapter = dist.KeyValAdapter;
 	var fgGunAdapter = new KeyValAdapter({
 	  opt: function opt(context, options) {
-	    console.log('gun-fleetgrid');
 	    var fleetgrid = options.fleetgrid;
 
 	    if (fleetgrid) {
 	      this.initialized = true;
-	      this.ht = fleetgrid.library;
-	      this.token = fleetgrid.token;
+	      this.ht = fleetgrid.library.move(fleetgrid.plate, fleetgrid.highway);
+	      console.log('initialized gun-fleetgrid');
 	    } else {
 	      this.initialized = false;
 	    }
 	  },
 	  get: function get(key, field, done) {
-	    console.log('get:key', key);
-	    console.log('get:field', field); // handle read
+	    // console.log('get:key', key)
+	    // get:key test
+	    // handle read
+	    this.ht.key(key).find(function (message) {
+	      // console.log('message:', message)
+	      done();
+	    });
 	  },
 	  put: function put(node, done) {
-	    console.log('put:node', node); // handle write
+	    // console.log('put:node', node)
+	    // put:node [{state: 1589606526747, field: "hello", key: "test", val: "world"}]
+	    // handle write
+	    var object = {};
+	    node.forEach(function (element) {
+	      object[element.field] = element.val;
+	    });
+	    this.ht.key(node[0].key).value(object).post(function (message) {
+	      // console.log('message:', message)
+	      done();
+	    });
 	  }
 	});
 	Flint.register(fgGunAdapter);

@@ -1,6 +1,10 @@
 <html>
   <head>
     <title>gun-fleetgrid</title>
+    <!-- code styling -->
+    <link href="themes/prism.css" rel="stylesheet" />
+    <link href="index.css" rel="stylesheet" />
+    <script src="libs/prism.js"></script>
     <!-- GUN -->
     <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gun/lib/radix.js"></script>
@@ -21,7 +25,9 @@
       <div style="border-bottom: 5px dashed;">
         <h2 style="text-align: center;">gun-fleetgrid</h2>
       </div>
-      <h1 style="text-align: center;">test</h1>
+      <pre><code id="install.md" class="language-md"></code></pre>
+      <pre><code id="setup.html" class="language-html"></code></pre>
+      <pre><code id="hello.js" class="language-js"></code></pre>
       <div style="border-top: 5px dashed;">
         <h2 style="text-align: center;">gun-fleetgrid</h2>
       </div>
@@ -29,26 +35,17 @@
       <br />
       <br />
     </div>
-  <script>
-    let gun = new Gun({
-      fleetgrid: {
-        library: ht, // pass in headteam for gun to use
-        token: '...' // use ht.checkpoint() to get this
-      }
-    })
-
-    function testPut() {
-      gun.get('test').put({
-        hello: "world",
-        welcome: "earth"
+    <script>
+      let code = ['install.md', 'setup.html', 'hello.js']
+      code.forEach((value) => {
+        let client = new XMLHttpRequest()
+        client.open('GET', `/examples/${value}`)
+        client.onreadystatechange = function() {
+          const html = Prism.highlight(client.responseText, Prism.languages.js, 'js')
+          document.getElementById(value).innerHTML = html
+        }
+        client.send()
       })
-    }
-
-    function testGet() {
-      gun.get('test').once((value) => {
-        console.log('get', value)
-      })
-    }
-  </script>
+    </script>
   </body>
 </html>
